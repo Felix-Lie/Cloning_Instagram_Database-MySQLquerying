@@ -12,3 +12,11 @@ SELECT
 FROM users
 GROUP BY day
 ORDER BY total DESC;
+
+-- 3. Identify Inactive Users (users with no photos)
+SELECT username
+FROM users
+LEFT JOIN photos
+    ON users.id = photos.user_id
+WHERE photos.id IS NULL;
+
